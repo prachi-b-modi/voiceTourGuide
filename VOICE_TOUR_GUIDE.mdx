@@ -1,9 +1,12 @@
 ## Voice-Guided Onboarding with VAPI + Joyride: From Static Tours to Agentic Flows
 
-November 2025
+Aug 8 2025
 
-In 2024–2025, voice-first and agentic applications crossed a threshold: instead of forcing users to read static tooltips or bounce between a YouTube video and your app, a voice agent can guide them in place. By pairing a UI tour engine (Joyride) with a voice layer  (Vapi Web Client) and lightweight analytics (Make), you can ship self-guided onboarding that feels like a product demo welcoming users in.
-NOTE: The current SDK implementation has not fully developed the Agentic layer but merely highlights the revolutionizing value of combining Agentic apps with voice AI for product onboarding.
+This app demonstrates practically how voice-first and agentic applications can cross a threshold in browser productivity: instead of forcing users to read static tooltips in onboarding tours or bounce between a YouTube video and your app, a voice agent can guide them in place. By pairing a UI tour engine (Joyride) with a voice layer  (Vapi Web Client) and lightweight analytics (Make), you can ship self-guided onboarding that feels like a product demo welcoming users in. But most importantly, this engine creates a data warehouse of rich actionable feedback extracted from natural conversation between users, and vapi assistants. This feedback can help a product grow quickly, and effectively without waiting for specific user feedback. This feedback also outperforms user interaction tracking telemetry like number of button-clicks due to the availability of natural conversation.
+The voice-tour-sdk aims to act as an independent SDK implementation that can be used on top of any browser to quickly add Product onboarding to it. 
+
+NOTE: The current SDK implementation has not fully developed the Agentic layer but merely highlights the momentous value of combining Agentic flows with voice AI for product onboarding, and automated feedback gathering.
+
 This guide walks through a practical approach to build a voice-guided tour that:
 - Explains features conversationally
 - Navigates tutorial steps hands-free using a Custom Vapi Tool ("NextStep")
@@ -186,7 +189,7 @@ export default function App()
 }
 ```
 
-## How Joyride and WAPI integrate
+## How Joyride and VAPI integrate
 
 At a high level:
 - Joyride controls UI spotlight and step index
@@ -237,7 +240,7 @@ if (message.type === 'function-call' && message.functionCall?.name === 'NextStep
 }
 ```
 
-Example Custom Tool schema (conceptual) used by your VAPI assistant configuration:
+Example Custom Tool schema used by your VAPI assistant configuration:
 
 ```json
 {
@@ -259,6 +262,7 @@ Flow summary:
 ## Analytics via Make
 
 Lightweight client-side analytics can be buffered and forwarded to a Make webhook for aggregation. Events include: `viewed_step`, `asked_question`, `tour_completed`, and `voice_started_manually`.
+The current implementation uses Make's Dashboard for manually triggering the analytics & trello card generation pipeline.
 
 
 VAPI layer gives you call logs and transcripts; combine them with OpenAi for sentiment analysis, and extracting negative actionable feedback; Send this feedback to Trello layer for a card generation.
@@ -319,6 +323,6 @@ Ship behind feature flags and progressively roll out to cohorts. Measure complet
 
 ## Conclusion
 
-The  voice-tour-sdk layer demonstrates how to turn static onboarding tours into conversational, agentic onboarding using Joyride + WAPI + Make. Define steps, bind a callback, stream context, and let a Custom Tool advance the UI. With call logs, transcripts, and buffered analytics, you can ship voice-first onboarding that teaches users faster—without more screen time.
+The  voice-tour-sdk layer demonstrates how to turn static onboarding tours into conversational, agentic onboarding using Joyride + VAPI + Make. Define steps, bind a callback, stream context, and let a Custom Tool advance the UI. With call logs, transcripts, and buffered analytics, you can ship voice-first onboarding that teaches users faster—without more screen time.
 
  
