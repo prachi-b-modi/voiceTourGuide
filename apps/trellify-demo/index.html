@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trellify – Voice Tour Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#10b981" />
+  </head>
+  <body class="bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50 font-sans antialiased">
+    <div id="root"></div>
+
+    <!-- Vapi Web Widget (provided snippet, with fixed quoting for consent-content) -->
+    <vapi-widget
+      public-key="7d85a4f4-710e-41c3-8e0b-f7c42538ab38"
+      assistant-id="a3a26495-b8ef-44a6-b3db-1a298a08504a"
+      mode="voice"
+      theme="dark"
+      base-bg-color="#000000"
+      accent-color="#14B8A6"
+      cta-button-color="#000000"
+      cta-button-text-color="#ffffff"
+      border-radius="large"
+      size="full"
+      position="bottom-right"
+      title="TALK WITH AI"
+      start-button-text="Start"
+      end-button-text="End Call"
+      chat-first-message="Hey, How can I help you today?"
+      chat-placeholder="Type your message..."
+      voice-show-transcript="true"
+      consent-required="true"
+      consent-title="Terms and conditions"
+      consent-content='By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service.'
+      consent-storage-key="vapi_widget_consent"
+    ></vapi-widget>
+    <script
+      src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
+      async
+      type="text/javascript"
+    ></script>
+
+    <!-- Shim: expose minimal window.VapiWidget API expected by the SDK -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector("vapi-widget");
+        if (!el) return;
+        
+        if (!window.VapiWidget) {
+          window.VapiWidget = {
+            sendSystemMessage: (msg) => {
+              try {
+                return el.sendSystemMessage ? el.sendSystemMessage(msg) : null;
+              } catch (e) {
+                console.warn("VapiWidget: sendSystemMessage error:", e);
+              }
+            },
+            sendUserMessage: (msg) => {
+              try {
+                return el.sendUserMessage ? el.sendUserMessage(msg) : null;
+              } catch (e) {
+                console.warn("VapiWidget: sendUserMessage error:", e);
+              }
+            }
+          };
+        }
+      });
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html> 

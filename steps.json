@@ -1,0 +1,22 @@
+[
+  { 
+    "id": "board", 
+    "selector": "#board", 
+    "docs": "This is the main Kanban board interface that displays your project workflow. The board contains multiple vertical lists (columns) such as 'To Do', 'In Progress', and 'Done'. Each list contains cards representing tasks or items. You can drag and drop cards between lists to update their status, and drag cards within a list to reorder them by priority. The board layout helps visualize work progress and bottlenecks in your workflow. This is where you'll spend most of your time managing tasks and tracking project progress."
+  },
+  { 
+    "id": "new-card", 
+    "selector": "#new-card-btn", 
+    "docs": "This button allows you to create a new task card on the board. When clicked, it opens a card creation form where you can add a title for your task, assign colored labels for categorization (like 'Bug', 'Feature', 'High Priority'), set a due date for deadline tracking, and optionally add a description. After creating a card, it will appear in the default list (usually 'To Do'). Cards are the fundamental units of work in this Kanban system - each card represents a task, user story, or work item that needs to be completed."
+  },
+  { 
+    "id": "filters", 
+    "selector": "#filters", 
+    "docs": "The filters section provides powerful tools to narrow down and find specific cards on your board. You can filter cards by label colors (showing only cards with specific tags like 'Bug' or 'Urgent'), filter by assignee to see tasks assigned to specific team members, or filter by due date to focus on upcoming deadlines or overdue items. When filters are active, only matching cards remain visible on the board, making it easier to focus on specific work streams or find particular tasks in large projects. Clear filters to return to the full board view."
+  },
+  { 
+    "id": "settings", 
+    "selector": "#board-settings", 
+    "docs": "Board settings control the appearance and configuration of your Kanban board. Here you can customize the board background (choose from colors or images), manage board members and their permissions (add collaborators, set access levels), configure board-wide preferences like card templates or automation rules, and adjust list settings such as work-in-progress limits. You can also archive or delete the board, export board data, and manage integrations with other tools. These settings help personalize the board for your team's workflow and visual preferences."
+  }
+]

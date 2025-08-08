@@ -1,0 +1,51 @@
+// packages/voice-tour-sdk/src/types.ts
+export interface VoiceTourStep {
+  id: string;
+  selector: string;        // CSS target for the step highlight
+  docs: string;            // contextual docs pushed to Vapi for unscripted explanations
+  title?: string;
+  screenshotUrl?: string;  // optional: to display in tooltip/popover
+}
+
+export type AnalyticsProvider =
+  | { provider: "make"; webhookUrl: string }
+  | { provider: "custom"; url: string; headers?: Record<string, string> }
+  | { provider?: undefined };
+
+export interface VapiConfig {
+  mode: "web-widget";        // default. If you support streaming later, keep the surface the same.
+  assistantId: string;       // an Assistant configured in Vapi with official Tools if needed
+  // The widget embed itself lives in the host app; SDK just talks to it (window.VapiWidget).
+}
+
+export interface CreateVoiceTourOptions {
+  vapi: VapiConfig;
+  steps: VoiceTourStep[];
+  analytics?: AnalyticsProvider & {
+    flushIntervalMs?: number; // default 1000ms
+  };
+  onStepChange?: (step: VoiceTourStep) => void;
+  onUserUtterance?: (text: string) => void;
+  onToolInvocation?: (toolName: string, payload: unknown) => void;
+  onEnd?: () => void;
+}
+
+export interface VoiceTourController {
+  start(): void;
+  stop(): void;
+  next(): void;
+  prev(): void;
+  goTo(stepId: string): void;
+  ask(text: string): Promise<void>;
+  updateStepDocs(stepId: string, docs: string): void;
+  addSteps(steps: VoiceTourStep[]): void;
+}
+
+// packages/voice-tour-sdk/src/index.ts
+// - Validate config
+// - Instantiate an EventEmitter
+// - Create TourManager (step state + emits "step:viewed")
+// - Create VapiClient (bridges to Web Widget)
+// - Create AnalyticsClient (buffers lightweight client events + forwards to Make/custom)
+// - Wire: on "step:viewed" -> push docs to Vapi session + call onStepChange
+// - Return a VoiceTourController

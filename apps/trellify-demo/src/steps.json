@@ -1,0 +1,6 @@
+[
+  { "id": "board", "selector": "#board", "docs": "This board shows lists (columns) with cards. Drag-and-drop to reorder." },
+  { "id": "new-card", "selector": "#new-card-btn", "docs": "Create a new card. Add title, labels, and due date." },
+  { "id": "filters", "selector": "#filters", "docs": "Filter cards by label, assignee, or due date." },
+  { "id": "settings", "selector": "#board-settings", "docs": "Board preferences like backgrounds and members." }
+] 

@@ -1,0 +1,39 @@
+{
+  "name": "voice-tour-sdk",
+  "version": "0.1.0",
+  "description": "SDK to integrate Vapi Web Widget with React Joyride for voice-guided onboarding tours.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -w -p tsconfig.json",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-joyride": "^2.9.0",
+    "@vapi-ai/web": "*"
+  },
+  "peerDependenciesMeta": {
+    "@vapi-ai/web": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+.pnp.cjs
+.pnp.loader.mjs
+.pnpm-store
+
+# Build outputs
+dist
+.eslintcache
+.cache
+coverage
+.DS_Store
+
+# Env & secrets
+.env
+.env.*
+*.env
+server.env
+server.env.*
+*.secret
+*.key
+*.pem
+*.cert
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode
+.idea
+*.swp
+
+# Misc
+*.local
+.tmp
+
