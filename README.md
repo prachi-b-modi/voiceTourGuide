@@ -1,6 +1,7 @@
 ## Trellify – Voice-Guided Product Tours
 
 A calming, modern demo that blends React Joyride with Vapi voice to create step-by-step, voice-assisted walkthroughs. Built with Vite + React + TypeScript + Tailwind in a pnpm monorepo.
+Demo video: https://youtu.be/i65is73Z8eA
 
 ### What’s inside
 - `packages/voice-tour-sdk`: TypeScript SDK that bridges Vapi (web widget) and React Joyride
