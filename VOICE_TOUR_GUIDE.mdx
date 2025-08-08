@@ -2,21 +2,21 @@
 
 Aug 8 2025
 
-This app demonstrates practically how voice-first and agentic applications can cross a threshold in browser productivity: instead of forcing users to read static tooltips in onboarding tours or bounce between a YouTube video and your app, a voice agent can guide them in place. By pairing a UI tour engine (Joyride) with a voice layer  (Vapi Web Client) and lightweight analytics (Make), you can ship self-guided onboarding that feels like a product demo welcoming users in. But most importantly, this engine creates a data warehouse of rich actionable feedback extracted from natural conversation between users, and vapi assistants. This feedback can help a product grow quickly, and effectively without waiting for specific user feedback. This feedback also outperforms user interaction tracking telemetry like number of button-clicks due to the availability of natural conversation.
+This app demonstrates practically how voice-first and agentic applications can cross a threshold in browser productivity using Vapi: instead of forcing users to read static tooltips in onboarding tours or bounce between a YouTube video and your app, a voice agent can guide them in place. By pairing a UI tour engine (Joyride) with a voice layer  (Vapi Web Client) and lightweight analytics (Make), you can ship self-guided onboarding that feels like a product demo welcoming users in. But most importantly, this engine creates a data warehouse of rich actionable feedback extracted from natural conversation between users, and vapi assistants. This feedback can help a product grow quickly, and effectively without waiting for specific user feedback. This feedback also outperforms user interaction tracking telemetry like number of button-clicks due to the availability of natural conversation.
 The voice-tour-sdk aims to work as an independent SDK implementation that can be used on top of any browser to quickly add Product onboarding to it. 
 
 NOTE: The current SDK implementation has not fully developed the Agentic layer but merely highlights the momentous value of combining Agentic flows with voice AI for product onboarding, and automated feedback gathering.
 
 This guide walks through a practical approach to build a voice-guided tour that:
 - Explains features conversationally
-- Navigates tutorial steps hands-free using a Custom Vapi Tool ("NextStep")
-- Streams per-step UI context to the Vapi voice assistant
-- Captures call logs and transcripts for sentiment and insight analysis via VAPI call logs and Make
+- Navigates tutorial steps hands-free using a Custom Tools feature provided by Vapi that can trigger a voice assistant to take any custom action based on my usecase.
+- Streams per-step UI context to the Vapi voice assistant through its rich web APIs
+- Captures call logs and transcripts for sentiment and insight analysis via VAPI's detailed call logs that include transcript with Make
 
 
 ## What is a voice-guided tour?
 
-A voice-guided tour merges a UI spotlight system (Joyride) with a voice assistant (VAPI). Joyride controls step visuals (targets, spotlight), while VAPI streams guidance and listens for commands. Each time a step changes, the app sends a short system message (selector + docs) to the assistant. The assistant explains the current feature and can move on to next tutorial steps via a Custom Vapi Tool.
+A voice-guided tour merges a UI spotlight system (Joyride) with a voice assistant (VAPI). You can think of Vapi assistants as a customizable voice agent that performs a specific role. The agent can call tools, as well as speak in a certain voices and temperament. The agent can have its personalized system prompt with modefiable LLM and Voice providers. Vapi also provides an easy-to-use [STT-LLM-TTS (Speech-to-text, LLM, Text-to-Speech) toolkit](https://docs.vapi.ai/quickstart/introduction) with a lot of flexibility, and integrations. Joyride controls step visuals (targets, spotlight), while Vapi streams guidance and listens for commands. Each time a step changes, the app sends a short system message (selector + docs) to the Vapi voice assistant. The assistant explains the current feature and can move on to next tutorial steps via a Custom Vapi Tool.
 
 ## Practical App Overview
 
@@ -321,6 +321,17 @@ Ship behind feature flags and progressively roll out to cohorts. Measure complet
 - Add more Custom Tools: `PrevStep`, `GoToStep`, `OpenPanel`, domain-specific actions
 - Join Make analytics with VAPI call logs + app telemetry for deeper funnels
 - Explore agentic flows: chain tools to perform multi-step tasks on request
+
+## Further Reading
+
+- vapi-custom-tools: [Custom Tools](https://docs.vapi.ai/tools/custom-tools)
+- vapi-sdk: [Vapi Web Client SDK](https://github.com/VapiAI/client-sdk-web)
+- vapi + make: [Vapi meets Make](https://vapi.ai/blog/vapi-meets-make)
+- react joyride: [React Joyride](https://react-joyride.com/)
+
+## Call to Action
+
+Ready to ship a voice-guided tour? Spin up the demo, add a `NextStep` tool via the Vapi dashboard’s Custom Tools, and try advancing steps hands-free. Then iterate on your `steps.json` and scripts to fit your product.
 
 ## Conclusion
 
