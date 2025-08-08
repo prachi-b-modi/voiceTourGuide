@@ -259,6 +259,8 @@ Flow summary:
 - User says “next” or model triggers `NextStep` → UI event → Joyride advances
 - Repeat for each step
 
+![Voice Tour Architecture](./assets/voice-tour-architecture.jpg)
+
 ## Analytics via Make
 
 Lightweight client-side analytics can be buffered and forwarded to a Make webhook for aggregation. Events include: `viewed_step`, `asked_question`, `tour_completed`, and `voice_started_manually`.
@@ -269,6 +271,8 @@ VAPI layer gives you call logs and transcripts; combine them with OpenAi for sen
 
 ![Make Analytics Flow](./assets/make-analytics-flow.png)
 
+![Voice Tour Flow](./assets/voice-tour-flow.jpg)
+
 ## End-to-End Sequence (Text Diagram)
 
 - Joyride activates step → Controller emits `step:viewed`
@@ -278,11 +282,6 @@ VAPI layer gives you call logs and transcripts; combine them with OpenAi for sen
 - VAPI emits event → Controller dispatches `voice-tour:next`
 - App increments `stepIndex` → Joyride advances → loop continues
 - Optional: analytics `viewed_step` → buffered → Make webhook
-
-## Diagrams
-
-![Voice Tour Flow](./assets/voice-tour-flow.png)
-![Voice Tour Architecture](./assets/voice-tour-architecture.png)
 
 ## Potential Applications
 
