@@ -3,10 +3,13 @@
 A calming, modern demo that blends React Joyride with Vapi voice to create step-by-step, voice-assisted walkthroughs. Built with Vite + React + TypeScript + Tailwind in a pnpm monorepo.
 Demo video: https://youtu.be/i65is73Z8eA
 
+
 ### What’s inside
 - `packages/voice-tour-sdk`: TypeScript SDK that bridges Vapi (web widget) and React Joyride
 - `apps/trellify-demo`: Trello-style UI showcasing the voice tour
 - `apps/webhook-server`: Minimal Node/Express service for analytics and Vapi Server URLs
+- `VOICE_TOUR_GUIDE.mdx`: Technical documentation
+- `LinkedinAndTwitter.md`: Short write-up on linkedin and twitter posts to launch this campaign and gain virality
 
 ### Highlights
 - Voice-aware step navigation (say “next step” to advance)
