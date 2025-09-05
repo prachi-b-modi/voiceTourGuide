@@ -1,6 +1,7 @@
 ## Trellify – Voice-Guided Product Tours
 
-A calming, modern demo that blends React Joyride with Vapi voice to create step-by-step, voice-assisted walkthroughs. Built with Vite + React + TypeScript + Tailwind in a pnpm monorepo.
+This app demonstrates practically how voice-first and agentic applications can cross a threshold in browser productivity using Vapi: instead of forcing users to read static tooltips in onboarding tours or bounce between a YouTube video and your app, a voice agent can guide them in place. By pairing a UI tour engine (Joyride) with a fully-customizable voice SDK (Vapi Web Client) and lightweight analytics (Make), you can ship self-guided onboarding that feels like a product demo welcoming users in. But most importantly, this engine creates a data warehouse of rich actionable feedback extracted from natural conversation between users, and vapi assistants. This feedback can help a product grow quickly, and effectively without waiting for specific user feedback. This feedback also outperforms user interaction tracking telemetry like number of button-clicks due to the availability of natural conversation. The voice-tour-sdk built on top of Vapi aims to work as an independent SDK implementation that can be used on top of any browser to quickly add Voice-powered agentic Product onboarding to it. 
+Built with Vite + React + TypeScript + Tailwind in a pnpm monorepo.
 Demo video: https://youtu.be/i65is73Z8eA
 
 
